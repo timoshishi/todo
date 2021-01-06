@@ -20,6 +20,8 @@ const Form = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setTodoData('');
+    setChecked(false);
     addTodo({ text: todoData, completed: checked });
   };
 
@@ -38,9 +40,10 @@ const Form = (props) => {
         <Input
           placeholder='add your todo'
           label='todo'
-          value={todoData.text}
+          value={todoData}
           onChange={(e) => setTodoData(e.target.value)}
           style={{ width: '100%' }}
+          required
         />
         <br />
         <Box my={4}>

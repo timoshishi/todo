@@ -44,6 +44,8 @@ const Row = ({ todo }) => {
           onClick={() => {
             if (editing) {
               updateTodo({ text: todoText, completed: complete, id: todo.id });
+              setTodoText('');
+              setComplete(false);
             }
             setEditing(!editing);
           }}>

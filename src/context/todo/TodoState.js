@@ -16,30 +16,17 @@ const TodoState = (props) => {
 
   const url = 'http://localhost:3001/todo';
 
-  //GET ALL TODOS
   const getTodos = async () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
+
       return dispatch({
         type: GET_TODOS,
         payload: data,
       });
     } catch (err) {
       console.error(err.message);
-    }
-  };
-
-  const getTodos = async () => {
-    try {
-      const res = await fetch(url);
-      const todos = await res.json();
-      dispatch({
-        type: GET_TODOS,
-        payload: todos,
-      });
-    } catch (err) {
-      console.log('@ addTodo TodoState.js', err.message);
     }
   };
 

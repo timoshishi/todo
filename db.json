@@ -1,14 +1,19 @@
 {
   "todo": [
     {
-      "text": "Nu todos",
+      "text": "Step 1. create todo app",
       "completed": false,
       "id": 1
     },
     {
-      "text": "another cool todo",
+      "text": "Step 2. use context",
       "completed": true,
       "id": 2
+    },
+    {
+      "text": "Step 3. ????",
+      "completed": true,
+      "id": 3
     }
   ]
 }

@@ -1,4 +1,5 @@
 import { GET_TODOS } from '../types';
+
 const todoReducer = (state, action) => {
   const { payload, type } = action;
   switch (type) {
