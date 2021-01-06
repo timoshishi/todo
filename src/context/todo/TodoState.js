@@ -1,14 +1,7 @@
 import React, { useReducer } from 'react';
 import TodoContext from './todoContext';
 import todoReducer from './todoReducer';
-import {
-  GET_TODOS,
-  // ADD_TODO,
-  // UPDATE_TODO,
-  // DELETE_TODO,
-  SET_SELECTION,
-  CLEAR_SELECTION,
-} from '../types';
+import { GET_TODOS } from '../types';
 
 const TodoState = (props) => {
   const initialState = {
@@ -26,6 +19,19 @@ const TodoState = (props) => {
   //GET ALL TODOS
   const getTodos = async () => {
     try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return dispatch({
+        type: GET_TODOS,
+        payload: data,
+      });
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const getTodos = async () => {
+    try {
       const res = await fetch(url);
       const todos = await res.json();
       dispatch({
@@ -37,7 +43,7 @@ const TodoState = (props) => {
     }
   };
 
-  // ADD A TODO TO STATE
+  // ADD A TODO
   const addTodo = async (todo) => {
     try {
       const options = {
@@ -54,7 +60,7 @@ const TodoState = (props) => {
     }
   };
 
-  // DELETE TODO ON SERVER
+  // DELETE TODO
   const deleteTodo = async (id) => {
     try {
       const options = {
@@ -67,7 +73,7 @@ const TodoState = (props) => {
     }
   };
 
-  //UPDATE TODO IN LOCAL STATE
+  //UPDATE TODO
   const updateTodo = async (todo) => {
     const options = {
       method: 'PUT',
@@ -84,22 +90,6 @@ const TodoState = (props) => {
     }
   };
 
-  //SET CURRENT SELECTION FOR THE MODAL
-  const setSelection = (id) => {
-    const todo = state.todos.find((item) => item.id === Number(id));
-    dispatch({
-      type: SET_SELECTION,
-      payload: todo,
-    });
-  };
-  //CLEAR CURRENT SELECTION FOR THE MODAL
-  const clearSelection = () => {
-    dispatch({
-      type: CLEAR_SELECTION,
-      payload: null,
-    });
-  };
-
   return (
     <TodoContext.Provider
       value={{
@@ -108,8 +98,6 @@ const TodoState = (props) => {
         getTodos,
         addTodo,
         deleteTodo,
-        setSelection,
-        clearSelection,
         updateTodo,
       }}>
       {props.children}

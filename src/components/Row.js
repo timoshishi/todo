@@ -16,7 +16,6 @@ const Row = ({ todo }) => {
   const [editing, setEditing] = useState(false);
   const [complete, setComplete] = useState(todo.completed);
   const [todoText, setTodoText] = useState(todo.text);
-
   return (
     <TableRow key={todo.id}>
       <TableCell>
@@ -44,7 +43,6 @@ const Row = ({ todo }) => {
           color={editing ? 'primary' : 'inherit'}
           onClick={() => {
             if (editing) {
-              console.log('doing');
               updateTodo({ text: todoText, completed: complete, id: todo.id });
             }
             setEditing(!editing);

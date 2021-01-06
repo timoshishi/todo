@@ -1,3 +1,14 @@
 {
-  "todo": []
+  "todo": [
+    {
+      "text": "Nu todos",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "text": "another cool todo",
+      "completed": true,
+      "id": 2
+    }
+  ]
 }
