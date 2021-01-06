@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
+    "@material-ui/data-grid": "^4.0.0-alpha.14",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "concurrently": "^5.3.0",
     "json-server": "^0.16.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -17,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-mockapi": "json-server --watch ./db.json --port 3001",
+    "dev": "concurrently \"npm start\" \"npm run start-mockapi\""
   },
   "eslintConfig": {
     "extends": [
