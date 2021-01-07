@@ -6,11 +6,6 @@ import { GET_TODOS } from '../types';
 const TodoState = (props) => {
   const initialState = {
     todos: [],
-    currentSelection: {
-      id: null,
-      text: '',
-      completed: false,
-    },
   };
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
